@@ -1,0 +1,6 @@
+vagrant init debian/stretch64
+vagrant up
+
+git add .
+git commit -m "Initial commit"
+git push
