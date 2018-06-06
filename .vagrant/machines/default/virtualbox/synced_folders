@@ -1,1 +1,0 @@
-{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/Users/taco/Documents/code/vagrant/matt-debian-stretch/matt-debian-stretch","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
