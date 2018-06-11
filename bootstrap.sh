@@ -14,4 +14,4 @@ python get-pip.py
 #   ln -fs /vagrant /var/www
 # fi
 
-echo alias ll=\'ls -lat\' >> ~/.bashrc
+echo alias ll=\'ls -lat\' >> ~/.bash_aliases
