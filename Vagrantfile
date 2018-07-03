@@ -14,9 +14,8 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "debian/stretch64"
   config.vm.provision :shell, path: "bootstrap.sh"
-  config.vm.network :forwarded_port, guest: 80, host: 8888
-  config.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)" 
-
+  config.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)"
+  # config.vm.network :forwarded_port, guest: 80, host: 8888
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
