@@ -9,3 +9,9 @@ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.1.de
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.1.deb.sha512
 shasum -a 512 -c elasticsearch-6.3.1.deb.sha512
 sudo dpkg --log=/tmp/es.log --install elasticsearch-6.3.1.deb
+
+# wget --quiet https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.1.deb
+# dpkg --install elasticsearch-6.3.1.deb
+# systemctl daemon-reload
+# systemctl enable elasticsearch.service
+# systemctl start elasticsearch.service
