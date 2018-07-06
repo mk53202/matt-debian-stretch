@@ -39,6 +39,9 @@ dpkg --install elasticsearch-6.3.1.deb
 systemctl daemon-reload
 systemctl enable elasticsearch.service
 systemctl start elasticsearch.service
+# /etc/elasticsearch/elasticsearch.yml
+# root@stretch:/etc/elasticsearch# #network.host: 192.168.0.1
+# root@stretch:/etc/elasticsearch# network.host: 0.0.0.0
 
 
 echo Updating bash_aliases
