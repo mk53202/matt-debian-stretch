@@ -33,13 +33,14 @@ apt-get install -y default-jdk
 # - Install elasticsearch 6.3.1 manually, requires JAVA JDK/JRE
 # Source doc: https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html
 # Test es: curl -X GET "localhost:9200/"
-echo Install elasticsearch
+
+echo Fetch, install, and configure elasticsearch
 wget --quiet https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.1.deb
 dpkg --install elasticsearch-6.3.1.deb
-echo 'cluster.name: koster-kluster' >> /etc/elasticsearch/elasticsearch.yml
 echo 'network.host: 0.0.0.0' >> /etc/elasticsearch/elasticsearch.yml
-echo 'discovery.zen.ping.unicast.hosts: ["10.0.1.215", "10.0.1.216"]' >> /etc/elasticsearch/elasticsearch.yml
 echo 'bootstrap.mlockall: true' >> /etc/elasticsearch/elasticsearch.yml
+# echo 'cluster.name: koster-kluster' >> /etc/elasticsearch/elasticsearch.yml
+# echo 'discovery.zen.ping.unicast.hosts: ["10.0.1.215", "10.0.1.216"]' >> /etc/elasticsearch/elasticsearch.yml
 systemctl daemon-reload
 systemctl enable elasticsearch.service
 systemctl start elasticsearch.service
