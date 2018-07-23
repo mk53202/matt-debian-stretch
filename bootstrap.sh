@@ -3,7 +3,7 @@
 # Pick 'n choose, build your box
 
 COMMON=true
-WEBSERVER=false
+WEBSERVER=true
 PYTHON=false
 DOCKER=false
 NODEJS=false
@@ -15,16 +15,17 @@ if $COMMON ; then
   apt-get update
   apt-get install -y htop git curl net-tools
   apt-get install -y apt-transport-https
+  # apt-get install cifs-utils
 fi
 
 # - Install webserver stuff
 if $WEBSERVER ; then
   apt-get install -y nginx
-  # if ! [ -L /var/www ]; then
-  #   rm -rf /var/www
-  #   mkdir /var/www
-  #   ln -s /vagrant/www /var/www/html
-  # fi
+  if ! [ -L /var/www ]; then
+    rm -rf /var/www
+    mkdir /var/www
+    ln -s /taco_shared/www /var/www/html
+  fi
 fi
 
 # - Install Python stuff

@@ -13,11 +13,15 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "debian/stretch64"
   config.vm.provision :shell, path: "bootstrap.sh"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder "~/Documents/shared_content", "/taco_shared", type: "sshfs"
+
   if ENV['BOX_IP']
     config.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)", ip: ENV['BOX_IP']
   else
     config.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)"
   end
+
   # config.vm.network :forwarded_port, guest: 80, host: 8888
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
