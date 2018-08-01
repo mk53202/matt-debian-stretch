@@ -3,10 +3,10 @@
 # Pick 'n choose, build your box
 
 COMMON=true
-WEBSERVER=true
+WEBSERVER=false
 PYTHON=false
-DOCKER=false
-NODEJS=false
+DOCKER=true
+NODEJS=true
 JAVAJDK=false
 ELASTICSEARCH=false
 
