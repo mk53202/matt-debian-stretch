@@ -3,8 +3,8 @@
 # Pick 'n choose, build your box
 
 COMMON=true
-WEBSERVER=false
-PYTHON=false
+WEBSERVER=true
+PYTHON=true
 DOCKER=true
 NODEJS=true
 JAVAJDK=false
@@ -24,7 +24,7 @@ if $WEBSERVER ; then
   if ! [ -L /var/www ]; then
     rm -rf /var/www
     mkdir /var/www
-    ln -s /taco_shared/www /var/www/html
+    ln -s /taco-shared /var/www/html
   fi
 fi
 
@@ -33,6 +33,7 @@ if $PYTHON ; then
   curl --silent https://bootstrap.pypa.io/get-pip.py -o get-pip.py
   python get-pip.py
   apt-get install -y python-dev
+  rm get-pip.py
 fi
 
 # - Install Docker
@@ -50,6 +51,8 @@ if $DOCKER ; then
   apt-get -y install docker-ce
   systemctl enable docker
   docker run hello-world
+  sudo usermod -a -G docker vagrant
+  rm -f gpg
 fi
 
 # - Install NodeJS
